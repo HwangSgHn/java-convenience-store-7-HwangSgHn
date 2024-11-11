@@ -27,8 +27,16 @@ public class Product {
         return name;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public int getQuantity() {
         return quantity;
+    }
+
+    public String getPromotionName() {
+        return promotionName;
     }
 
     public void decreaseQuantity(int quantity) {

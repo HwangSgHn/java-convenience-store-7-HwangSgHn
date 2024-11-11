@@ -18,6 +18,14 @@ public class Promotion {
         this.end_date = end_date;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getSumOfBuyAndGet() {
+        return buy + get;
+    }
+
     public boolean isWithinDeadline(LocalDateTime now) {
         LocalDate nowLocalDate = now.toLocalDate();
         return !(nowLocalDate.isBefore(start_date) || nowLocalDate.isAfter(end_date));
