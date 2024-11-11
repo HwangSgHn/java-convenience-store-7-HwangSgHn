@@ -17,7 +17,18 @@ public class StockManager {
         return products;
     }
 
-    public boolean canPurchase(String name, int quantity) {
+    public boolean canPurchases(List<Purchase> purchases) {
+        for (Purchase purchase : purchases) {
+            String name = purchase.getName();
+            int quantity = purchase.getQuantity();
+            if (!canPurchase(name, quantity)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean canPurchase(String name, int quantity) {
         List<Product> productsFindByName = products.stream().filter(product -> name.equals(product.getName())).toList();
         if (productsFindByName.isEmpty()) {
             try {
