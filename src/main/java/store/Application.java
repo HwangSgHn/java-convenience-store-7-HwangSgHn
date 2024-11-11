@@ -2,6 +2,18 @@ package store;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        PaymentSystem paymentSystem = new PaymentSystem();
+        boolean continuePurchase = true;
+        while (continuePurchase) {
+            paymentSystem.init();
+            paymentSystem.inputProductsWithQuantity();
+            paymentSystem.promotionAddition();
+            paymentSystem.generalPurchase();
+            paymentSystem.membership();
+            paymentSystem.minusStock();
+            paymentSystem.receipt();
+            continuePurchase = paymentSystem.continuePurchase();
+        }
+
     }
 }

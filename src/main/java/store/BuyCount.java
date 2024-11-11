@@ -31,11 +31,33 @@ public class BuyCount {
         return presentation;
     }
 
+    public int getSumOfBuyAndGet() {
+        return sumOfBuyAndGet;
+    }
+
     public String getName() {
         return name;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public boolean isPromotion() {
+        return promotion;
+    }
+
     public int calculatePrice(int quantity) {
         return price * quantity;
+    }
+
+    public void plusPresentation() {
+        this.discountQuantity++;
+        this.presentation++;
+    }
+
+    public void minusNoPromotionQuantity(int noPromotion, int generalQuantity) {
+        discountQuantity -= noPromotion - generalQuantity;
+        this.generalQuantity = 0;
     }
 }
