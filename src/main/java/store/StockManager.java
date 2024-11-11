@@ -78,4 +78,19 @@ public class StockManager {
         minusProduct.getFirst().decreaseQuantity(promotionQuantity);
         minusProduct.getLast().decreaseQuantity(generalQuantity);
     }
+
+    public void addNoStack() {
+        List<Product> promotionProducts = products.stream().filter(product -> !product.getPromotionName().isEmpty()).toList();
+        for (Product promotionProduct : promotionProducts) {
+            if (needAdding(promotionProduct)) {
+                products.add(new Product(promotionProduct.getName(), promotionProduct.getPrice(), 0));
+            }
+        }
+    }
+
+    private boolean needAdding(Product promotionProduct) {
+        return 1 == products.stream()
+                .filter(product -> product.getName().equals(promotionProduct.getName()))
+                .count();
+    }
 }

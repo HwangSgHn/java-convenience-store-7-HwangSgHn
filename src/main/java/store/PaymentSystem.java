@@ -16,6 +16,7 @@ public class PaymentSystem {
 
     public PaymentSystem() {
         stockManager = new StockManager(InputFile.readProducts(), InputFile.readPromotions());
+        stockManager.addNoStack();
         inputView = new InputView();
         outputView = new OutputView();
     }
