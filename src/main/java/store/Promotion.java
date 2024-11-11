@@ -17,4 +17,17 @@ public class Promotion {
         this.start_date = start_date;
         this.end_date = end_date;
     }
+
+    public boolean isWithinDeadline(LocalDateTime now) {
+        LocalDate nowLocalDate = now.toLocalDate();
+        return !(nowLocalDate.isBefore(start_date) || nowLocalDate.isAfter(end_date));
+    }
+
+    public int discountQuantity(int quantity) {
+        return quantity / (buy + get);
+    }
+
+    public boolean canGetOneMore(int quantity, int discountQuantity) {
+        return quantity - discountQuantity * (buy + get) == buy;
+    }
 }
