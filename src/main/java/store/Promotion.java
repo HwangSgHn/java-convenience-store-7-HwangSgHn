@@ -26,4 +26,8 @@ public class Promotion {
     public int discountQuantity(int quantity) {
         return quantity / (buy + get);
     }
+
+    public boolean canGetOneMore(int quantity, int discountQuantity) {
+        return quantity - discountQuantity * (buy + get) == buy;
+    }
 }
