@@ -19,4 +19,12 @@ public class Product {
         this.quantity = quantity;
         this.promotionName = promotionName;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
