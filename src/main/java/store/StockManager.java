@@ -68,4 +68,14 @@ public class StockManager {
     private Promotion findPromotion(Product product) {
         return promotions.stream().filter(pm -> pm.getName().equals(product.getPromotionName())).findFirst().get();
     }
+
+    public void minusProductStock(String name, int promotionQuantity, int generalQuantity) {
+        List<Product> minusProduct = products.stream().filter(product -> name.equals(product.getName())).toList();
+        if (minusProduct.size() == 1) {
+            minusProduct.getFirst().decreaseQuantity(generalQuantity);
+            return;
+        }
+        minusProduct.getFirst().decreaseQuantity(promotionQuantity);
+        minusProduct.getLast().decreaseQuantity(generalQuantity);
+    }
 }
